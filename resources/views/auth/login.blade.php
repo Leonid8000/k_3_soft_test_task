@@ -1,9 +1,23 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container flex-center position-ref full-height">
     <div class="row justify-content-center">
         <div class="col-md-8">
+
+            @if (session('error'))
+                <div class="check_email">
+                    {{ session('error') }}
+                </div>
+            @endif
+
+            @if (session('success'))
+                <div class="check_email">
+                    {{ session('success') }}
+                </div>
+            @endif
+
             <div class="card">
                 <div class="card-header">{{ __('Login') }}</div>
 
