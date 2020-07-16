@@ -1,3 +1,30 @@
+## Application launch
+
+1) Copy .ENV.EXAMPLE and rename to .ENV
+
+2) Add in .ENV file you credentials
+DB_DATABASE=
+DB_USERNAME=
+DB_PASSWORD=
+
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.googlemail.com
+MAIL_PORT=465
+MAIL_USERNAME=
+MAIL_PASSWORD=
+MAIL_ENCRYPTION=ssl
+MAIL_FROM_ADDRESS=
+MAIL_FROM_NAME="${APP_NAME}"
+
+ - after that run command in terminal:
+   php artisan config:cache
+
+3) Go to you gmail in google acount
+And activate "Access for less secure applications"
+
+4) Go to the project and run the command in the terminal:
+   php artisan migrate
+
 <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
 <p align="center">

@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use App\Mail\Auth\VerifyMail;
 use Illuminate\Http\Request;
+use App\UserRegisterLog;
 
 
 class RegisterController extends Controller
@@ -96,13 +97,20 @@ class RegisterController extends Controller
         if (!$user = User::where('verify_token', $token)->first()) {
             return redirect()->route('login')
                 ->with('error', 'Sorry your link cannot be identified.');
+        }else{
+            $user->status = User::STATUS_ACTIVE;
+            $user->verify_token = null;
+            $user->save();
+
+            $userRegisterLog = UserRegisterLog::create([
+                'user_id' => $user['id'],
+                'register_time' => $user['updated_at'],
+            ]);
+
+            $userRegisterLog->save();
+
+            return redirect()->route('login')
+                ->with('success', 'Your e-mail is verified. You can now login.');
         }
-
-        $user->status = User::STATUS_ACTIVE;
-        $user->verify_token = null;
-        $user->save();
-
-        return redirect()->route('login')
-            ->with('success', 'Your e-mail is verified. You can now login.');
     }
 }

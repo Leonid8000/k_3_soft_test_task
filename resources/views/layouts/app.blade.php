@@ -9,7 +9,8 @@
                 </a>
                         <!-- Authentication Links -->
                         @guest
-                                <a class="home-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+
+                            <a class="home-link" href="{{ route('login') }}">{{ __('Login') }}</a>
 
                             @if (Route::has('register'))
 

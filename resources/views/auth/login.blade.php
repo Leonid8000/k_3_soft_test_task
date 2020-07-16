@@ -20,6 +20,7 @@
 
             <div class="card">
                 <div class="card-header">{{ __('Login') }}</div>
+                <hr>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
@@ -72,7 +73,7 @@
                                 </button>
 
                                 @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    <a class="home-link text-dark-grey" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
                                     </a>
                                 @endif

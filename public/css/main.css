@@ -47,8 +47,9 @@ html, body {
     color: #00101F;
     font-family: 'Calistoga', cursive;
 }
-.title-change{
-    /*-webkit-animation:colorchange 10s infinite alternate;*/
+
+.text-dark-grey{
+    color: darkgray;
 }
 
 .title-text{
